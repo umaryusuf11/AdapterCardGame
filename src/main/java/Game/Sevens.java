@@ -8,6 +8,12 @@ public class Sevens extends CardGame {
 
     private int noOfCards = 0;
     private Hand[] sevenTableHands = createSevensTableHands();
+    public Sevens(){
+        super();
+    }
+    public Sevens(String override){
+        super(override);
+    }
 
     protected String generateHelp(){
         return "Please enter a card to play.";
