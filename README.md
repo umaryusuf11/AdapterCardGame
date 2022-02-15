@@ -37,6 +37,10 @@
 ## Game.BlackJack
 * Create a test for "play", so an end to end test using the adpaters
   * Advanced - Test name is "playAdapter", check if the game has finished
+
+## Game.Sevens
+* Create a test for "play", so an end to end test using the adpaters
+  * Advanced - Test name is "playAdapter", check if the game has finished. Note you can override the deck and don't need to use a full pack
   
 ## Submit
 * Before you commit your final solution, double check it can build and all the test you completed can run.
