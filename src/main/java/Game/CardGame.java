@@ -79,19 +79,19 @@ public class CardGame {
         return loadConfig.getConfig();
     }
 
-    protected void createComputerPlayers(Integer noOfPlayers) {
+    protected void createComputerPlayers(Integer noOfComputerPlayers) {
         List<String> computerNames = getComputerPlayersNames();
         Player dealer = new Player(PlayerType.DEALER,computerNames.remove(0),17);
         players.add(dealer);
-        for (int counter=2;counter < noOfPlayers;counter++){
+        for (int counter=1;counter < noOfComputerPlayers;counter++){
             players.add(new Player(PlayerType.COMPUTER,computerNames.remove(0),0));
         }
     }
 
-    protected int getNumberOfPlayers(){
+    protected int getNumberOfComputerPlayers(){
         int noOfPlayers = 0;
-        while ( noOfPlayers < 2 || noOfPlayers > 8) {
-            output("How many players, minimum of two and max eight?");
+        while ( noOfPlayers < 1 || noOfPlayers > 8) {
+            output("How many computer players, minimum of one and max eight?");
             noOfPlayers = getInteger();
         }
         return noOfPlayers;
@@ -100,7 +100,7 @@ public class CardGame {
     public void initiatePlayers(){
         players.clear();
         createHumanPlayer();
-        createComputerPlayers(getNumberOfPlayers());
+        createComputerPlayers(getNumberOfComputerPlayers());
     }
 
     public void resetPlayers(){

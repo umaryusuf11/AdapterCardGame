@@ -63,7 +63,7 @@ class CardGameTest {
         Scanner mockScanner = mock(Scanner.class);
         when(mockScanner.nextLine()).thenReturn("3");
         cardGame.userInput.setUserInput(mockScanner);
-        assertEquals(3, cardGame.getNumberOfPlayers());
+        assertEquals(3, cardGame.getNumberOfComputerPlayers());
     }
 
     @Test
@@ -112,7 +112,7 @@ class CardGameTest {
         LoadConfig mockLoadConfig = mock(LoadConfig.class);
         when(mockLoadConfig.getConfig()).thenReturn(mockNames);
         cardGame.setLoadConfig(mockLoadConfig);
-        cardGame.createComputerPlayers(4);
+        cardGame.createComputerPlayers(3);
         assertEquals("Agnes Is Great",cardGame.players.get(2).getName());
     }
 
@@ -125,7 +125,7 @@ class CardGameTest {
         LoadConfig mockLoadConfig = mock(LoadConfig.class);
         when(mockLoadConfig.getConfig()).thenReturn(mockNames);
         cardGame.setLoadConfig(mockLoadConfig);
-        cardGame.createComputerPlayers(4);
+        cardGame.createComputerPlayers(3);
         assertEquals(3,cardGame.players.size());
     }
 
@@ -142,7 +142,7 @@ class CardGameTest {
     void initiatePlayers(){
         Scanner mockScanner = mock(Scanner.class);
         when(mockScanner.nextLine()).thenReturn("Derek");
-        when(mockScanner.nextLine()).thenReturn("3");
+        when(mockScanner.nextLine()).thenReturn("2");
         cardGame.userInput.setUserInput(mockScanner);
         cardGame.initiatePlayers();
         assertEquals(3, cardGame.players.size());
@@ -152,7 +152,7 @@ class CardGameTest {
     void initiate(){
         Scanner mockScanner = mock(Scanner.class);
         when(mockScanner.nextLine()).thenReturn("Derek");
-        when(mockScanner.nextLine()).thenReturn("3");
+        when(mockScanner.nextLine()).thenReturn("2");
         cardGame.userInput.setUserInput(mockScanner);
         cardGame.initiate();
         assertEquals(2, cardGame.players.get(0).getHand().size());
@@ -162,7 +162,7 @@ class CardGameTest {
     void play(){
         ConsoleInput mockInput = mock(ConsoleInput.class);
         when(mockInput.getString()).thenReturn("Derek").thenReturn("T");
-        when(mockInput.getInteger()).thenReturn(3);
+        when(mockInput.getInteger()).thenReturn(2);
         cardGame.setUserInput(mockInput);
         cardGame.setFinishGame(true);
         cardGame.play();
