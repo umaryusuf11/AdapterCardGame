@@ -12,6 +12,7 @@
 * If you are interested in pair programming, it is optional, see [video](https://uofglasgow.zoom.us/rec/share/QjQt1zbjuwQGYgMrX1tDDBc-PUqa_CpvxJGI0gV1gvEStOTcGnn55ls_TQVRVbfD.N9qsbYv71kE0iBtJ?startTime=1644928799000) and [wiki](https://stgit.dcs.gla.ac.uk/DerekSomerville/javagetstarted/-/wikis/home/Pair-Programming) and register on the [form](https://forms.office.com/Pages/ResponsePage.aspx?id=KVxybjp2UE-B8i4lTwEzyELpM2ZClsRNrJBn7A_b41VUMlFPTUpPMjlCSkRQQTE5NUpYQ01INUJLSy4u)
 
 ## Adapter classes Names
+The below is guidance for you to create and amend the classes. We have not created these in advance for you.
 * Input interface name input in the Console package
 * Output interface name output in the Console package
 * Input adapter name InputTestAdapter in the Console package
