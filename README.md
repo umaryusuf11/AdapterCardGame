@@ -13,11 +13,11 @@
 
 ## Adapter classes Names
 The below is guidance for you to create and amend the classes. We have not created these in advance for you.
-* Input interface name input in the Console package
-* Output interface name output in the Console package
+* Input interface/Abstract name input in the Console package
+* Output interface/Abstract name output in the Console package
 * Input adapter name InputTestAdapter in the Console package
 * Output adapter name OutputTestAdapter in the Console package
-* Load config interface name Config in the Structure Package
+* Load config interface/Abstract name Config in the Structure Package
 * Load config adapter LoadTestAdapter in the Structure Package
 
 ## Game.CardGame Tests
