@@ -41,7 +41,7 @@ The below is guidance for you to create and amend the classes. We have not creat
 
 ## Game.Sevens
 * Create a test for "play", so an end to end test using the adpaters
-  * Advanced - Test name is "playAdapter", check if the game has finished and the user has no cards. Note you can override the deck and don't need to use a full pack
+  * Advanced - Test name is "playAdapter", the game should play and finsh. Sevens is won when a user has no cards. Note you can override the deck and don't need to use a full pack
   
 ## Submit
 * Before you commit your final solution, double check it can build and all the test you completed can run.
