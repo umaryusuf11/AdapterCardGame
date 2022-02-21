@@ -4,12 +4,14 @@
 * Fork [AdapterCardGameStart](https://stgit.dcs.gla.ac.uk/oose-2021-22-teaching-team/adaptercardgamestart.git) see [https://stgit.dcs.gla.ac.uk/DerekSomerville/javagetstarted/-/wikis/home/Git/Project_Setup](https://stgit.dcs.gla.ac.uk/DerekSomerville/javagetstarted/-/wikis/home/Git/Project_Setup)
 * Make sure you have invited Derek Somerville and your tutor as Developer Members
 
-
 ## Overview
 * The lab will look at doubling using the Adapter Design Pattern. Please refer to week six lecture on the Adapter Design Pattern. 
 * This lab will an adapter for calls to the file system, adapters for input from the console and output to the console.
 * Please find a video overview of what you need to know from the Adapter Design Pattern lecture for the lab [https://uofglasgow.zoom.us/rec/share/QjQt1zbjuwQGYgMrX1tDDBc-PUqa_CpvxJGI0gV1gvEStOTcGnn55ls_TQVRVbfD.N9qsbYv71kE0iBtJ?startTime=1644928799000](https://uofglasgow.zoom.us/rec/share/QjQt1zbjuwQGYgMrX1tDDBc-PUqa_CpvxJGI0gV1gvEStOTcGnn55ls_TQVRVbfD.N9qsbYv71kE0iBtJ?startTime=1644928799000). Please see slides [https://gla.sharepoint.com/:f:/s/COMPSCI2008OBJECT-ORIENTEDSOFTWAREENGINEERING22/EqkJHUJO_1dOssa-Au6gvNUBl4iSNeniTN5QeLV1wL0xYw?e=Hr7IlR](https://gla.sharepoint.com/:f:/s/COMPSCI2008OBJECT-ORIENTEDSOFTWAREENGINEERING22/EqkJHUJO_1dOssa-Au6gvNUBl4iSNeniTN5QeLV1wL0xYw?e=Hr7IlR).
-* If you are interested in pair programming, it is optional, see [video](https://uofglasgow.zoom.us/rec/share/QjQt1zbjuwQGYgMrX1tDDBc-PUqa_CpvxJGI0gV1gvEStOTcGnn55ls_TQVRVbfD.N9qsbYv71kE0iBtJ?startTime=1644928799000) and [wiki](https://stgit.dcs.gla.ac.uk/DerekSomerville/javagetstarted/-/wikis/home/Pair-Programming) and register on the [form](https://forms.office.com/Pages/ResponsePage.aspx?id=KVxybjp2UE-B8i4lTwEzyELpM2ZClsRNrJBn7A_b41VUMlFPTUpPMjlCSkRQQTE5NUpYQ01INUJLSy4u)
+* If you are interested in pair programming, it is optional, see [video](https://uofglasgow.zoom.us/rec/share/QjQt1zbjuwQGYgMrX1tDDBc-PUqa_CpvxJGI0gV1gvEStOTcGnn55ls_TQVRVbfD.N9qsbYv71kE0iBtJ?startTime=1644928799000) 
+  * and [wiki](https://stgit.dcs.gla.ac.uk/DerekSomerville/javagetstarted/-/wikis/home/Pair-Programming) and 
+  * register on the [form](https://forms.office.com/Pages/ResponsePage.aspx?id=KVxybjp2UE-B8i4lTwEzyELpM2ZClsRNrJBn7A_b41VUMlFPTUpPMjlCSkRQQTE5NUpYQ01INUJLSy4u)
+* Pre-reading - Chapter 7 pg243 - pg255 - The Adapter & Facade Design Pattern. 2009 Eric Freeman, Elisabeth Robson, Bert Bates, and Kathy Sierra. "Head First Design Patterns". See University Library for free online copy. ~ 20 minutes
 
 ## Adapter classes Names
 The below is guidance for you to create and amend the classes. We have not created these in advance for you.
@@ -19,6 +21,14 @@ The below is guidance for you to create and amend the classes. We have not creat
 * Output adapter name OutputTestAdapter in the Console package
 * Load config interface/Abstract name Config in the Structure Package
 * Load config adapter LoadTestAdapter in the Structure Package
+
+## Adapter Steps
+* Create an interface/abstract with defined methods and parameters
+* Each Adapter to implements the interface
+* Each Adapter implements the interface methods
+* Client (CardGame) has an adapter variable of interface type
+* Client setter to amend the adapter variable
+Please see the [video](https://uofglasgow.zoom.us/rec/share/QjQt1zbjuwQGYgMrX1tDDBc-PUqa_CpvxJGI0gV1gvEStOTcGnn55ls_TQVRVbfD.N9qsbYv71kE0iBtJ?startTime=1644928799000) or lectures for more details.
 
 ## Game.CardGame Tests
 * Create a test for getComputerPlayersNames, create an adapter for LoadConfig, note there is CardGame.setLoadConfig.
