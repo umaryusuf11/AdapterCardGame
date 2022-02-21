@@ -6,7 +6,8 @@
 
 ## Overview
 * The lab will look at doubling using the Adapter Design Pattern. Please refer to week six lecture on the Adapter Design Pattern. 
-* This lab will an adapter for calls to the file system, adapters for input from the console and output to the console.
+* This lab will create adapters for calls to the file system, adapters for input from the console and output to the console.
+* This will allow the testing of the card games wih out the need to go to the file system or get inputs from the console.
 * Please find a video overview of what you need to know from the Adapter Design Pattern lecture for the lab [https://uofglasgow.zoom.us/rec/share/QjQt1zbjuwQGYgMrX1tDDBc-PUqa_CpvxJGI0gV1gvEStOTcGnn55ls_TQVRVbfD.N9qsbYv71kE0iBtJ?startTime=1644928799000](https://uofglasgow.zoom.us/rec/share/QjQt1zbjuwQGYgMrX1tDDBc-PUqa_CpvxJGI0gV1gvEStOTcGnn55ls_TQVRVbfD.N9qsbYv71kE0iBtJ?startTime=1644928799000). Please see slides [https://gla.sharepoint.com/:f:/s/COMPSCI2008OBJECT-ORIENTEDSOFTWAREENGINEERING22/EqkJHUJO_1dOssa-Au6gvNUBl4iSNeniTN5QeLV1wL0xYw?e=Hr7IlR](https://gla.sharepoint.com/:f:/s/COMPSCI2008OBJECT-ORIENTEDSOFTWAREENGINEERING22/EqkJHUJO_1dOssa-Au6gvNUBl4iSNeniTN5QeLV1wL0xYw?e=Hr7IlR).
 * If you are interested in pair programming, it is optional, see [video](https://uofglasgow.zoom.us/rec/share/QjQt1zbjuwQGYgMrX1tDDBc-PUqa_CpvxJGI0gV1gvEStOTcGnn55ls_TQVRVbfD.N9qsbYv71kE0iBtJ?startTime=1644928799000) 
   * and [wiki](https://stgit.dcs.gla.ac.uk/DerekSomerville/javagetstarted/-/wikis/home/Pair-Programming) and 
@@ -15,12 +16,17 @@
 
 ## Adapter classes Names
 The below is guidance for you to create and amend the classes. We have not created these in advance for you.
-* Input interface/Abstract name input in the Console package
-* Output interface/Abstract name output in the Console package
-* Input adapter name InputTestAdapter in the Console package
-* Output adapter name OutputTestAdapter in the Console package
-* Load config interface/Abstract name Config in the Structure Package
-* Load config adapter LoadTestAdapter in the Structure Package
+* Create a new abstract named Input in the console package, if it is an abstract you only need one getInteger
+  * This abstract should contain the getString method to implement
+  * This abstract should implement the getInteger method
+  * So match the methods of ConsoleInput
+* Create a new interface/abstract name output in the Console package
+  * Contains the methods of ConsoleOutput
+* Create a new adapter name InputTestAdapter that implements the input abstract in the Console package
+* Create a new adapter name OutputTestAdapter that implments the output interface/abstract in the Console package
+* Create a new interface/Abstract name Config in the Structure Package
+  * Contains the public methods of LoadConfig
+* Create a new adapter LoadTestAdapter in the Structure Package that implements the Config interface
 
 ## Adapter Steps
 * Create an interface/abstract with defined methods and parameters
