@@ -1,12 +1,12 @@
 package Game;
 
 import Console.ConsoleInput;
+import Console.InputTestAdapter;
 import Game.BlackJack;
-import Structure.Hand;
-import Structure.Player;
-import Structure.PlayerType;
+import Structure.*;
 import org.junit.jupiter.api.Test;
 import java.util.ArrayList;
+import java.util.List;
 import java.util.Scanner;
 
 import static org.junit.jupiter.api.Assertions.*;
@@ -65,6 +65,26 @@ class BlackJackTest {
         when(mockInput.getString()).thenReturn("Derek").thenReturn("T");
         when(mockInput.getInteger()).thenReturn(2);
         overrideBlackJack.setUserInput(mockInput);
+        overrideBlackJack.play();
+        assertEquals(3,overrideBlackJack.players.get(0).getHand().size());
+    }
+
+    @Test
+    void playAdapter(){
+        CardGame overrideBlackJack = new BlackJack("HK,HQ,CJ,CK,CQ,DJ,DK,DQ");
+        List<String> mockNames = new ArrayList<String>();
+        mockNames.add("Don A Dealer");
+        mockNames.add("Susan A Tester");
+        mockNames.add("Agnes Is Great");
+        LoadConfig mockLoadConfig = mock(LoadConfig.class);
+        when(mockLoadConfig.getConfig()).thenReturn(mockNames);
+        overrideBlackJack.setLoadConfig(mockLoadConfig);
+
+        InputTestAdapter mockInput = mock(InputTestAdapter.class);
+        when(mockInput.getString()).thenReturn("Derek").thenReturn("T");
+        when(mockInput.getInteger()).thenReturn(2);
+        overrideBlackJack.setUserInput(mockInput);
+
         overrideBlackJack.play();
         assertEquals(3,overrideBlackJack.players.get(0).getHand().size());
     }

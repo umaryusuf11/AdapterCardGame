@@ -3,6 +3,8 @@ package Game;
 import java.util.ArrayList;
 import java.util.List;
 
+import Console.Input;
+import Console.Output;
 import Structure.*;
 import Console.ConsoleOutput;
 import Console.ConsoleInput;
@@ -13,10 +15,10 @@ public class CardGame {
     protected Integer noOfCards = 2;
     protected Deck deck;
     public ArrayList<Player> players;
-    protected ConsoleOutput userOutput = new ConsoleOutput();
-    protected ConsoleInput userInput = new ConsoleInput(userOutput);
+    protected Output userOutput = new ConsoleOutput();
+    protected Input userInput = new ConsoleInput(userOutput);
     protected boolean finshGame = false;
-    private LoadConfig loadConfig = new LoadConfig();
+    private Config loadConfig = new LoadConfig();
 
 
     public void setNoOfCards(Integer noOfCards) {
@@ -27,11 +29,11 @@ public class CardGame {
         this.finshGame = finshGame;
     }
 
-    public void setLoadConfig(LoadConfig loadConfig){
+    public void setLoadConfig(Config loadConfig){
         this.loadConfig = loadConfig;
     }
 
-    public void setUserInput(ConsoleInput userInput){
+    public void setUserInput(Input userInput){
         this.userInput = userInput;
     }
 

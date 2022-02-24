@@ -1,18 +1,17 @@
 package Structure;
 
-import java.io.File;  // Import the File class
+import java.io.File;
 import java.io.IOException;
-import java.util.Scanner; // Import the Scanner class to read text files
-import java.util.List;
 import java.util.ArrayList;
+import java.util.List;
+import java.util.Scanner;
 
-
-public class LoadConfig implements Config {
+public class LoadTestAdapter implements Config {
     final static String configPath = "src/main/resources/playersNames.cfg";
     protected List<String> propertyData = new ArrayList<String>();
     protected Scanner propertyReader;
 
-    public LoadConfig(){
+    public LoadTestAdapter(){
         File propertyFile = new File(this.configPath);
         Scanner propertyReader = null;
         try {
@@ -47,4 +46,5 @@ public class LoadConfig implements Config {
         }
         return propertyData;
     }
+
 }

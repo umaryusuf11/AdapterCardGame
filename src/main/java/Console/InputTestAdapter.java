@@ -2,14 +2,15 @@ package Console;
 
 import java.util.Scanner;
 
-public class ConsoleInput implements Input{
+public class InputTestAdapter implements Input {
     private Scanner userInput = new Scanner(System.in);
     protected Output userOutput;
 
-    public ConsoleInput(Output userOutput){
+    public InputTestAdapter(Output userOutput){
         this.userOutput = userOutput;
     }
 
+    @Override
     public String getString(){
         return userInput.nextLine();
     }
@@ -18,6 +19,7 @@ public class ConsoleInput implements Input{
         return Integer.parseInt(input);
     }
 
+    @Override
     public int getInteger(){
         boolean found = false;
         int result = -1;
@@ -36,7 +38,9 @@ public class ConsoleInput implements Input{
         return result;
     }
 
+    @Override
     public void setUserInput(Scanner userInput){
         this.userInput = userInput;
     }
+
 }

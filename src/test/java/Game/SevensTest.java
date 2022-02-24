@@ -1,11 +1,19 @@
 package Game;
 
+import Console.InputTestAdapter;
+import Console.OutputTestAdapter;
 import Game.Sevens;
 import Structure.Card;
 import Structure.Hand;
 import Structure.Suit;
 import org.junit.jupiter.api.Test;
 
+import java.util.ArrayList;
+import java.util.List;
+import java.util.Scanner;
+
+import static org.mockito.Mockito.when;
+import static org.mockito.Mockito.mock;
 import static org.junit.jupiter.api.Assertions.*;
 
 class SevensTest {
@@ -133,5 +141,20 @@ class SevensTest {
     void canNotPlayACardHeartNineHandH7(){
         this.sevensTableHands[Suit.HEARTS.ordinal()].add(new Card("H7"));
         assertFalse(sevens.canPlayACard(new Card("H9"), sevensTableHands));
+    }
+
+    @Test
+    void playAdapter(){
+        Sevens sevensOverride = new Sevens("D2,H2");
+        InputTestAdapter userInput = mock(InputTestAdapter.class);
+        when(userInput.getString()).thenReturn("Derek");
+        when(userInput.getInteger()).thenReturn(2);
+        when(userInput.getString()).thenReturn("H2");
+
+        sevensOverride.setUserInput(userInput);
+        sevensOverride.play();
+        assertTrue(sevensOverride.finshGame);
+        assertEquals(0,sevensOverride.players.get(0).getHand().size());
+
     }
 }

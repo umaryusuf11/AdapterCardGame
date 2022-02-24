@@ -1,9 +1,12 @@
 package Game;
 
 import Console.ConsoleInput;
+import Console.InputTestAdapter;
+import Console.OutputTestAdapter;
 import Game.CardGame;
 import Structure.Hand;
 import Structure.LoadConfig;
+import Structure.LoadTestAdapter;
 import org.junit.jupiter.api.Test;
 
 import java.util.ArrayList;
@@ -104,6 +107,18 @@ class CardGameTest {
     }
 
     @Test
+    void getComputerPlayersNamesAdapter(){
+        List<String> mockNames = new ArrayList<String>();
+        mockNames.add("Don Tester");
+        mockNames.add("Susan Tester");
+        mockNames.add("Agnes Tester");
+        LoadTestAdapter mockLoadTestAdapter = mock(LoadTestAdapter.class);
+        when(mockLoadTestAdapter.getConfig()).thenReturn(mockNames);
+        cardGame.setLoadConfig(mockLoadTestAdapter);
+        assertEquals(mockNames, cardGame.getComputerPlayersNames());
+    }
+
+    @Test
     void createComputerPlayers(){
         List<String> mockNames = new ArrayList<String>();
         mockNames.add("Don A Dealer");
@@ -114,6 +129,19 @@ class CardGameTest {
         cardGame.setLoadConfig(mockLoadConfig);
         cardGame.createComputerPlayers(3);
         assertEquals("Agnes Is Great",cardGame.players.get(2).getName());
+    }
+
+    @Test
+    void createComputerPlayersAdapter(){
+        List<String> mockNames = new ArrayList<String>();
+        mockNames.add("Don A Dealer");
+        mockNames.add("Susan A Tester");
+        mockNames.add("Agnes Is Great");
+        LoadTestAdapter mockLoadTestAdapter = mock(LoadTestAdapter.class);
+        when(mockLoadTestAdapter.getConfig()).thenReturn(mockNames);
+        cardGame.setLoadConfig(mockLoadTestAdapter);
+        cardGame.createComputerPlayers(3);
+        assertEquals("Agnes Is Great", cardGame.players.get(2).getName());
     }
 
     @Test
@@ -130,6 +158,19 @@ class CardGameTest {
     }
 
     @Test
+    void createComputerPlayersSizeAdapter(){
+        List<String> mockNames = new ArrayList<String>();
+        mockNames.add("Don A Dealer");
+        mockNames.add("Susan A Tester");
+        mockNames.add("Agnes Is Great");
+        LoadTestAdapter mockLoadTestAdapter = mock(LoadTestAdapter.class);
+        when(mockLoadTestAdapter.getConfig()).thenReturn(mockNames);
+        cardGame.setLoadConfig(mockLoadTestAdapter);
+        cardGame.createComputerPlayers(3);
+        assertEquals(3,cardGame.players.size());
+    }
+
+    @Test
     void createHumanPlayer(){
         Scanner mockScanner = mock(Scanner.class);
         when(mockScanner.nextLine()).thenReturn("Derek");
@@ -139,7 +180,32 @@ class CardGameTest {
     }
 
     @Test
+    void createHumanPlayerAdapter(){
+        OutputTestAdapter outputTestAdapter = new OutputTestAdapter();
+        InputTestAdapter inputTestAdapter = new InputTestAdapter(outputTestAdapter);
+        cardGame.setUserInput(inputTestAdapter);
+        Scanner mockScanner = mock(Scanner.class);
+        when(mockScanner.nextLine()).thenReturn("Derek");
+        cardGame.userInput.setUserInput(mockScanner);
+        cardGame.createHumanPlayer();
+        assertEquals("Derek", cardGame.players.get(0).getName());
+    }
+
+    @Test
     void initiatePlayers(){
+        Scanner mockScanner = mock(Scanner.class);
+        when(mockScanner.nextLine()).thenReturn("Derek");
+        when(mockScanner.nextLine()).thenReturn("2");
+        cardGame.userInput.setUserInput(mockScanner);
+        cardGame.initiatePlayers();
+        assertEquals(3, cardGame.players.size());
+    }
+
+    @Test
+    void initiatePlayersAdapter(){
+        OutputTestAdapter outputTestAdapter = new OutputTestAdapter();
+        InputTestAdapter inputTestAdapter = new InputTestAdapter(outputTestAdapter);
+        cardGame.setUserInput(inputTestAdapter);
         Scanner mockScanner = mock(Scanner.class);
         when(mockScanner.nextLine()).thenReturn("Derek");
         when(mockScanner.nextLine()).thenReturn("2");
@@ -159,11 +225,47 @@ class CardGameTest {
     }
 
     @Test
+    void initiateAdapter(){
+        OutputTestAdapter outputTestAdapter = new OutputTestAdapter();
+        InputTestAdapter inputTestAdapter = new InputTestAdapter(outputTestAdapter);
+        cardGame.setUserInput(inputTestAdapter);
+        Scanner mockScanner = mock(Scanner.class);
+        when(mockScanner.nextLine()).thenReturn("Derek");
+        when(mockScanner.nextLine()).thenReturn("2");
+        cardGame.userInput.setUserInput(mockScanner);
+        cardGame.initiate();
+        assertEquals(2, cardGame.players.get(0).getHand().size());
+    }
+
+    @Test
     void play(){
         ConsoleInput mockInput = mock(ConsoleInput.class);
         when(mockInput.getString()).thenReturn("Derek").thenReturn("T");
         when(mockInput.getInteger()).thenReturn(2);
         cardGame.setUserInput(mockInput);
+        cardGame.setFinishGame(true);
+        cardGame.play();
+        assertTrue(cardGame.finshGame);
+    }
+
+    @Test
+    void playAdapter(){
+        List<String> mockNames = new ArrayList<String>();
+        mockNames.add("Don A Dealer");
+        mockNames.add("Susan A Tester");
+        mockNames.add("Agnes Is Great");
+        LoadTestAdapter mockLoadTestAdapter = mock(LoadTestAdapter.class);
+        when(mockLoadTestAdapter.getConfig()).thenReturn(mockNames);
+        cardGame.setLoadConfig(mockLoadTestAdapter);
+
+        OutputTestAdapter outputTestAdapter = new OutputTestAdapter();
+        InputTestAdapter inputTestAdapter = new InputTestAdapter(outputTestAdapter);
+        cardGame.setUserInput(inputTestAdapter);
+        InputTestAdapter mockInput = mock(InputTestAdapter.class);
+        when(mockInput.getString()).thenReturn("Derek").thenReturn("T");
+        when(mockInput.getInteger()).thenReturn(2);
+        cardGame.setUserInput(mockInput);
+
         cardGame.setFinishGame(true);
         cardGame.play();
         assertTrue(cardGame.finshGame);
